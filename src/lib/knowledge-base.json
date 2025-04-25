@@ -1,0 +1,239 @@
+{
+  "support_request": {
+    "account_management": {
+      "login_issues": {
+        "common_questions": {
+          "how do i reset my password": {
+            "answer": "Use the 'Forgot Password' link on the login page. You'll receive an email with reset instructions within 5 minutes.",
+            "confidence": 1.0
+          },
+          "x": {
+            "answer": "Make sure you're using the email address you used to register. Contact support if you've changed your email.",
+            "confidence": 1.0
+          },
+          "i cant access my 2fa codes": {
+            "answer": "If you're having trouble with 2FA, you can use your backup codes or contact support for verification.",
+            "confidence": 1.0
+          }
+        },
+        "common_problems": [
+          "forgot password",
+          "email not recognized",
+          "two-factor authentication issues"
+        ],
+        "solutions": {
+          "forgot_password": "Use the 'Forgot Password' link on the login page. You'll receive an email with reset instructions within 5 minutes.",
+          "email_not_recognized": "Make sure you're using the email address you used to register. Contact support if you've changed your email.",
+          "two_factor": "If you're having trouble with 2FA, you can use your backup codes or contact support for verification."
+        }
+      },
+      "profile_updates": {
+        "common_questions": {
+          "how do i update my profile": {
+            "answer": "Go to Settings > Profile to update your information. Changes may take up to 1 hour to reflect across the platform.",
+            "confidence": 1.0
+          },
+          "what information can i change in my profile": {
+            "answer": "You can update your Name, Contact information, Program details, Availability, and Pricing through the Profile settings.",
+            "confidence": 1.0
+          }
+        },
+        "fields_editable": [
+          "Name",
+          "Contact information",
+          "Program details",
+          "Availability",
+          "Pricing"
+        ],
+        "instructions": "Go to Settings > Profile to update your information. Changes may take up to 1 hour to reflect across the platform."
+      }
+    },
+    "billing": {
+      "common_questions": {
+        "when do i get charged": {
+          "answer": "Monthly billing occurs on the 1st of each month",
+          "confidence": 1.0
+        },
+        "what payment methods do you accept": {
+          "answer": "We accept Credit/Debit Cards, ACH Transfers, and PayPal for payments.",
+          "confidence": 1.0
+        },
+        "my payment failed what should i do": {
+          "answer": "Update your payment method in Settings > Billing. Past due amounts will be automatically retried.",
+          "confidence": 1.0
+        }
+      },
+      "payment_methods": [
+        "Credit/Debit Card",
+        "ACH Transfer",
+        "PayPal"
+      ],
+      "billing_cycle": "Monthly billing occurs on the 1st of each month",
+      "common_issues": {
+        "failed_payment": "Update your payment method in Settings > Billing. Past due amounts will be automatically retried.",
+        "refund_policy": "Refunds are processed within 5-7 business days and are subject to our terms of service."
+      }
+    }
+  },
+  "website_update": {
+    "common_questions": {
+      "how does enrollment work": {
+        "answer": "Online enrollment allows parents to submit applications, upload documents, and pay deposits. Required documents include child's information, emergency contacts, immunization records, and signed agreements.",
+        "confidence": 1.0
+      },
+      "how do i manage my availability": {
+        "answer": "Use the scheduling system to set available hours, define age groups, manage waitlists, and handle part-time/full-time slots. Best practice is to update your availability at least monthly.",
+        "confidence": 1.0
+      }
+    },
+    "platform_features": {
+      "enrollment": {
+        "process": "Online enrollment allows parents to submit applications, upload documents, and pay deposits.",
+        "requirements": [
+          "Child's information",
+          "Emergency contacts",
+          "Immunization records",
+          "Signed agreements"
+        ]
+      },
+      "scheduling": {
+        "capabilities": [
+          "Set available hours",
+          "Define age groups",
+          "Manage waitlists",
+          "Handle part-time/full-time slots"
+        ],
+        "best_practices": "Update your availability at least monthly to maintain accurate scheduling."
+      }
+    },
+    "communication_tools": {
+      "messaging": "Built-in messaging system for parent communications",
+      "notifications": "Email and SMS alerts for important updates",
+      "announcements": "Broadcast messages to all enrolled families"
+    }
+  },
+  "pricing_change": {
+    "common_questions": {
+      "what are your full-time rates": {
+        "answer": "Full-time rates typically range from $800-$2000/month depending on location and age group.",
+        "confidence": 1.0
+      },
+      "do you offer sibling discounts": {
+        "answer": "Yes, we offer a 10% discount for the second child.",
+        "confidence": 1.0
+      },
+      "what additional fees should i expect": {
+        "answer": "Additional fees include a $50-$100 annual registration fee, $25-$50 monthly materials fee, and optional meal plans at $5-$8 per day.",
+        "confidence": 1.0
+      }
+    },
+    "fee_structure": {
+      "base_rates": {
+        "full_time": "Typically ranges from $800-$2000/month depending on location and age group",
+        "part_time": "Usually 60-75% of full-time rate",
+        "drop_in": "Available at premium rates where space permits"
+      },
+      "additional_fees": {
+        "registration": "$50-$100 annual fee",
+        "materials": "$25-$50 monthly",
+        "meals": "Optional, typically $5-$8 per day"
+      }
+    },
+    "payment_policies": {
+      "due_dates": "Payments due by 1st of month",
+      "late_fees": "3% charge after 5-day grace period",
+      "discounts": {
+        "sibling": "10% off second child",
+        "advance_payment": "2% off for quarterly payments"
+      }
+    }
+  },
+  "product_feedback": {
+    "recent_updates": {
+      "mobile_app": {
+        "version": "2.5.0",
+        "features": [
+          "Digital check-in/out",
+          "Real-time activity feeds",
+          "Document sharing"
+        ]
+      },
+      "web_platform": {
+        "version": "3.2.1",
+        "features": [
+          "Enhanced reporting",
+          "Automated billing",
+          "Parent portal improvements"
+        ]
+      }
+    },
+    "known_issues": {
+      "mobile_app": [
+        "Photo upload delays on slow connections",
+        "Notification delays on some Android devices"
+      ],
+      "web_platform": [
+        "Calendar sync occasional delays",
+        "Report generation timeout for large datasets"
+      ]
+    }
+  },
+  "account_issue": {
+    "common_questions": {
+      "when do i need to renew my license": {
+        "answer": "Annual license renewal is required 30 days before expiration. You'll need to maintain your state childcare license, business registration, and insurance documentation.",
+        "confidence": 1.0
+      },
+      "how often are background checks required": {
+        "answer": "Background checks are required every 2 years for providers, staff members, and regular volunteers.",
+        "confidence": 1.0
+      }
+    },
+    "compliance": {
+      "licensing": {
+        "requirements": [
+          "State childcare license",
+          "Business registration",
+          "Insurance documentation"
+        ],
+        "renewal": "Annual license renewal required 30 days before expiration"
+      },
+      "background_checks": {
+        "frequency": "Every 2 years",
+        "covered_individuals": [
+          "Provider",
+          "Staff members",
+          "Regular volunteers"
+        ]
+      }
+    },
+    "documentation": {
+      "required_forms": [
+        "Emergency contact cards",
+        "Health and safety checklist",
+        "Staff qualifications",
+        "Program policies"
+      ],
+      "update_frequency": "Review and update all forms annually"
+    }
+  },
+  "platform_basics": {
+    "technical_requirements": {
+      "supported_browsers": [
+        "Chrome 70+",
+        "Firefox 65+",
+        "Safari 12+",
+        "Edge 79+"
+      ],
+      "mobile_requirements": {
+        "ios": "iOS 13 or later",
+        "android": "Android 8.0 or later"
+      }
+    },
+    "support_hours": {
+      "weekday": "8am - 6pm PST",
+      "weekend": "9am - 2pm PST",
+      "emergency": "24/7 for urgent technical issues"
+    }
+  }
+} 

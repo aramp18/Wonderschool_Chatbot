@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { MicrophoneIcon, PaperAirplaneIcon } from '@heroicons/react/24/solid'
 import MessageBubble from './MessageBubble'
+import { supabase, Query } from '@/lib/supabase'
 
 type Message = {
   id: string
@@ -16,6 +17,83 @@ export default function ChatContainer() {
   const [inputText, setInputText] = useState('')
   const [isRecording, setIsRecording] = useState(false)
 
+  // Fetch message history from Supabase
+  useEffect(() => {
+    const fetchMessages = async () => {
+      const { data, error } = await supabase
+        .from('queries')
+        .select('*')
+        .order('timestamp', { ascending: true })
+
+      if (error) {
+        console.error('Error fetching messages:', error)
+        return
+      }
+
+      // Convert Supabase queries to Message format
+      const convertedMessages = data.flatMap((query: Query) => {
+        const messages: Message[] = [
+          {
+            id: `${query.id}-query`,
+            text: query.query,
+            sender: 'user',
+            timestamp: new Date(query.timestamp)
+          }
+        ]
+
+        if (query.response) {
+          messages.push({
+            id: `${query.id}-response`,
+            text: query.response,
+            sender: 'system',
+            timestamp: new Date(query.timestamp)
+          })
+        }
+
+        return messages
+      })
+
+      setMessages(convertedMessages)
+    }
+
+    fetchMessages()
+
+    // Subscribe to new messages
+    const channel = supabase
+      .channel('queries')
+      .on('postgres_changes', {
+        event: 'INSERT',
+        schema: 'public',
+        table: 'queries'
+      }, payload => {
+        const query = payload.new as Query
+        const newMessages: Message[] = [
+          {
+            id: `${query.id}-query`,
+            text: query.query,
+            sender: 'user',
+            timestamp: new Date(query.timestamp)
+          }
+        ]
+
+        if (query.response) {
+          newMessages.push({
+            id: `${query.id}-response`,
+            text: query.response,
+            sender: 'system',
+            timestamp: new Date(query.timestamp)
+          })
+        }
+
+        setMessages(prev => [...prev, ...newMessages])
+      })
+      .subscribe()
+
+    return () => {
+      channel.unsubscribe()
+    }
+  }, [])
+
   const handleSendMessage = async () => {
     if (!inputText.trim()) return
 
@@ -26,7 +104,7 @@ export default function ChatContainer() {
       timestamp: new Date(),
     }
 
-    setMessages((prev) => [...prev, newMessage])
+    setMessages(prev => [...prev, newMessage])
     setInputText('')
 
     try {
@@ -35,7 +113,10 @@ export default function ChatContainer() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message: inputText }),
+        body: JSON.stringify({ 
+          message: inputText,
+          input_method: 'text'
+        }),
       })
 
       if (!response.ok) {
@@ -51,7 +132,7 @@ export default function ChatContainer() {
         timestamp: new Date(),
       }
       
-      setMessages((prev) => [...prev, systemMessage])
+      setMessages(prev => [...prev, systemMessage])
     } catch (error) {
       console.error('Error sending message:', error)
       const errorMessage: Message = {
@@ -60,7 +141,7 @@ export default function ChatContainer() {
         sender: 'system',
         timestamp: new Date(),
       }
-      setMessages((prev) => [...prev, errorMessage])
+      setMessages(prev => [...prev, errorMessage])
     }
   }
 
