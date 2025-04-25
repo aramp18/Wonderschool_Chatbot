@@ -24,6 +24,8 @@ Visit [wonderschool-chatbot.vercel.app](https://wonderschool-chatbot.vercel.app)
 - Tailwind CSS
 - OpenAI API (for message processing)
 - Knowledge Base (JSON-based)
+- Supabase
+- Vercel
 
 ## Getting Started
 
